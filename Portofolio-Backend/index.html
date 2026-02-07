@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Web - Backend Python</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Kalkulator Web</h1>
+            <p class="subtitle">Dengan Backend Python (Flask)</p>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="calculator">
+                <!-- Layar kalkulator -->
+                <div class="display">
+                    <div class="expression" id="expression">0</div>
+                    <div class="result" id="result">0</div>
+                </div>
+                
+                <!-- Tombol kalkulator -->
+                <div class="buttons">
+                    <!-- Baris 1: Fungsi lanjutan -->
+                    <button class="btn advanced" data-action="sqrt">√</button>
+                    <button class="btn advanced" data-action="square">x²</button>
+                    <button class="btn advanced" data-action="sin">sin</button>
+                    <button class="btn advanced" data-action="cos">cos</button>
+                    <button class="btn clear" data-action="clear">C</button>
+                    
+                    <!-- Baris 2 -->
+                    <button class="btn number" data-value="7">7</button>
+                    <button class="btn number" data-value="8">8</button>
+                    <button class="btn number" data-value="9">9</button>
+                    <button class="btn operator" data-value="/">/</button>
+                    <button class="btn operator" data-value="^">^</button>
+                    
+                    <!-- Baris 3 -->
+                    <button class="btn number" data-value="4">4</button>
+                    <button class="btn number" data-value="5">5</button>
+                    <button class="btn number" data-value="6">6</button>
+                    <button class="btn operator" data-value="*">×</button>
+                    <button class="btn operator" data-value="%">%</button>
+                    
+                    <!-- Baris 4 -->
+                    <button class="btn number" data-value="1">1</button>
+                    <button class="btn number" data-value="2">2</button>
+                    <button class="btn number" data-value="3">3</button>
+                    <button class="btn operator" data-value="-">-</button>
+                    <button class="btn advanced" data-action="tan">tan</button>
+                    
+                    <!-- Baris 5 -->
+                    <button class="btn number" data-value="0">0</button>
+                    <button class="btn" data-value=".">.</button>
+                    <button class="btn equals" id="equals">=</button>
+                    <button class="btn operator" data-value="+">+</button>
+                    <button class="btn advanced" data-action="log">log</button>
+                    
+                    <!-- Baris 6: Fungsi tambahan -->
+                    <button class="btn advanced" data-action="ln">ln</button>
+                    <button class="btn" data-value="(">(</button>
+                    <button class="btn" data-value=")">)</button>
+                    <button class="btn backspace" data-action="backspace">
+                        <i class="fas fa-backspace"></i>
+                    </button>
+                    <button class="btn clear" data-action="clear-all">AC</button>
+                </div>
+                
+                <!-- Status koneksi -->
+                <div class="connection-status">
+                    <span id="status-icon"><i class="fas fa-circle"></i></span>
+                    <span id="status-text">Menghubungkan ke server...</span>
+                </div>
+            </div>
+            
+            <!-- Panel informasi -->
+            <div class="info-panel">
+                <h3><i class="fas fa-info-circle"></i> Petunjuk Penggunaan</h3>
+                <ul>
+                    <li><strong>Operasi Dasar:</strong> +, -, ×, /</li>
+                    <li><strong>Persentase:</strong> Gunakan tombol %</li>
+                    <li><strong>Pangkat:</strong> Gunakan tombol ^ (contoh: 2^3 = 8)</li>
+                    <li><strong>Fungsi Lanjutan:</strong> √, x², sin, cos, tan, log, ln</li>
+                    <li><strong>Hapus:</strong> C (hapus satu karakter), AC (hapus semua)</li>
+                </ul>
+                
+                <h3><i class="fas fa-history"></i> Riwayat Perhitungan</h3>
+                <div class="history" id="history">
+                    <!-- Riwayat akan ditampilkan di sini -->
+                    <p class="empty-history">Belum ada perhitungan</p>
+                </div>
+                
+                <div class="server-info">
+                    <p><i class="fas fa-server"></i> Backend: Python Flask</p>
+                    <p><i class="fas fa-code"></i> API Endpoint: /calculate & /advanced</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Kalkulator Web dengan Backend Python | Dibuat dengan Flask, HTML, dan CSS</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
